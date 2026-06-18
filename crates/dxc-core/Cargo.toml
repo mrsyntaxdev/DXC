@@ -1,0 +1,11 @@
+[package]
+name = "dxc-core"
+version = "0.1.0"
+edition = "2024"
+description = "DXC Core - Core logic and types"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = "1"
+thiserror = { workspace = true }
+toml = "0.8"

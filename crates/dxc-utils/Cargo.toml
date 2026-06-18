@@ -1,0 +1,7 @@
+[package]
+name = "dxc-utils"
+version = "0.1.0"
+edition = "2024"
+description = "DXC Utils - Shared utility functions"
+
+[dependencies]

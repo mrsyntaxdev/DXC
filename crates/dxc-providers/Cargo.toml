@@ -1,0 +1,18 @@
+[package]
+name = "dxc-providers"
+version = "0.1.0"
+edition = "2024"
+description = "DXC Providers - Media source providers (YouTube, TikTok, etc.)"
+
+[dependencies]
+dxc-core = { path = "../dxc-core" }
+dxc-utils = { path = "../dxc-utils" }
+
+reqwest = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+async-trait = "0.1"
+serde_json = "1"
+tokio = { workspace = true }
+tokio-stream = "0.1"

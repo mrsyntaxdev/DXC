@@ -1,0 +1,26 @@
+[package]
+name = "dxc-cli"
+version = "0.1.0"
+edition = "2024"
+description = "DXC CLI - Command line interface"
+
+[[bin]]
+name = "dxc"
+path = "src/main.rs"
+
+[dependencies]
+dxc-core = { path = "../dxc-core" }
+dxc-providers = { path = "../dxc-providers" }
+dxc-db = { path = "../dxc-db" }
+dxc-converter = { path = "../dxc-converter" }
+dxc-utils = { path = "../dxc-utils" }
+
+clap = { version = "4", features = ["derive"] }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+anyhow = { workspace = true }
+serde = { workspace = true }
+toml = "0.8"
+indicatif = "0.17"
+colored = "2"

@@ -1,0 +1,20 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "crates/dxc-cli",
+    "crates/dxc-core",
+    "crates/dxc-providers",
+    "crates/dxc-db",
+    "crates/dxc-converter",
+    "crates/dxc-utils",
+]
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "stream"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+anyhow = "1"
+thiserror = "2"

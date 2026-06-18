@@ -1,0 +1,12 @@
+[package]
+name = "dxc-db"
+version = "0.1.0"
+edition = "2024"
+description = "DXC DB - SQLite database layer"
+
+[dependencies]
+dxc-core = { path = "../dxc-core" }
+
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { workspace = true }
+thiserror = { workspace = true }
