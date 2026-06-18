@@ -88,7 +88,7 @@ impl Provider for RedditProvider {
             .as_ref()
             .and_then(|m| m.reddit_video.as_ref())
             .and_then(|v| v.duration)
-            .map(|s| dxc_utils::format_duration(s as u64))
+            .map(|s| dxc_helpers::format_duration(s as u64))
             .unwrap_or_else(|| "Unknown".to_string());
 
         Ok(MediaInfo {
@@ -171,8 +171,8 @@ impl Provider for RedditProvider {
                             print!(
                                 "\r  Progress: {:.1}% ({}/{})",
                                 pct,
-                                dxc_utils::format_bytes(downloaded),
-                                dxc_utils::format_bytes(total)
+                                dxc_helpers::format_bytes(downloaded),
+                                dxc_helpers::format_bytes(total)
                             );
                         }
                         use std::io::Write;

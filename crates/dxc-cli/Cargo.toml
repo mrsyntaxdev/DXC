@@ -18,7 +18,7 @@ dxc-core = { path = "../dxc-core", version = "0.1.0" }
 dxc-providers = { path = "../dxc-providers", version = "0.1.0" }
 dxc-db = { path = "../dxc-db", version = "0.1.0" }
 dxc-converter = { path = "../dxc-converter", version = "0.1.0" }
-dxc-utils = { path = "../dxc-utils", version = "0.1.0" }
+dxc-helpers = { path = "../dxc-helpers", version = "0.1.0" }
 
 clap = { version = "4", features = ["derive"] }
 tokio = { workspace = true }

@@ -29,11 +29,11 @@ pub async fn fetch_info(url: &str) -> Result<MediaInfo, DxcError> {
         .map_err(|e| DxcError::Other(format!("Failed to parse yt-dlp output: {e}")))?;
 
     let duration = info.duration
-        .map(|s| dxc_utils::format_duration(s as u64))
+        .map(|s| dxc_helpers::format_duration(s as u64))
         .unwrap_or_else(|| "Unknown".to_string());
 
     let size = info.filesize
-        .map(|b| dxc_utils::format_bytes(b))
+        .map(|b| dxc_helpers::format_bytes(b))
         .unwrap_or_else(|| "Unknown".to_string());
 
     Ok(MediaInfo {

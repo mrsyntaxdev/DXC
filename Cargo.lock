@@ -223,8 +223,8 @@ dependencies = [
  "dxc-converter",
  "dxc-core",
  "dxc-db",
+ "dxc-helpers",
  "dxc-providers",
- "dxc-utils",
  "indicatif",
  "serde",
  "tokio",
@@ -261,12 +261,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "dxc-helpers"
+version = "0.1.0"
+
+[[package]]
 name = "dxc-providers"
 version = "0.1.0"
 dependencies = [
  "async-trait",
  "dxc-core",
- "dxc-utils",
+ "dxc-helpers",
  "reqwest",
  "serde",
  "serde_json",
@@ -275,10 +279,6 @@ dependencies = [
  "tokio-stream",
  "tracing",
 ]
-
-[[package]]
-name = "dxc-utils"
-version = "0.1.0"
 
 [[package]]
 name = "encode_unicode"

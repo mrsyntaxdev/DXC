@@ -7,7 +7,7 @@ members = [
     "crates/dxc-providers",
     "crates/dxc-db",
     "crates/dxc-converter",
-    "crates/dxc-utils",
+    "crates/dxc-helpers",
 ]
 
 [workspace.dependencies]

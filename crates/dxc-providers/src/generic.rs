@@ -36,7 +36,7 @@ impl Provider for GenericProvider {
             .get(reqwest::header::CONTENT_LENGTH)
             .and_then(|v| v.to_str().ok())
             .and_then(|v| v.parse::<u64>().ok())
-            .map(|b| dxc_utils::format_bytes(b))
+            .map(|b| dxc_helpers::format_bytes(b))
             .unwrap_or_else(|| "Unknown".to_string());
 
         let filename = url
@@ -104,11 +104,11 @@ impl Provider for GenericProvider {
                 print!(
                     "\r  Progress: {:.1}% ({}/{})",
                     pct,
-                    dxc_utils::format_bytes(downloaded),
-                    dxc_utils::format_bytes(total)
+                    dxc_helpers::format_bytes(downloaded),
+                    dxc_helpers::format_bytes(total)
                 );
             } else {
-                print!("\r  Downloaded: {}", dxc_utils::format_bytes(downloaded));
+                print!("\r  Downloaded: {}", dxc_helpers::format_bytes(downloaded));
             }
             use std::io::Write;
             std::io::stdout().flush().ok();

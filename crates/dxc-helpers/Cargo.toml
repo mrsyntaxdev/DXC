@@ -1,5 +1,5 @@
 [package]
-name = "dxc-utils"
+name = "dxc-helpers"
 version = "0.1.0"
 edition = "2024"
 description = "DXC Utils - Shared utility functions"

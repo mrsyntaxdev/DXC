@@ -146,7 +146,7 @@ async fn cmd_download(url: &str, media_type: MediaType, config: &DxcConfig) -> a
         MediaType::Image => format!("{}/images", config.download_path),
     };
 
-    let filename = dxc_utils::sanitize_filename(
+    let filename = dxc_helpers::sanitize_filename(
         url.split('/').last().unwrap_or("download").split('?').next().unwrap_or("download")
     );
     let output_path = format!("{output_dir}/{filename}");
