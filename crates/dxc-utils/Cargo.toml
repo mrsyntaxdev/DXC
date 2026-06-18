@@ -3,5 +3,9 @@ name = "dxc-utils"
 version = "0.1.0"
 edition = "2024"
 description = "DXC Utils - Shared utility functions"
+license = "MIT"
+repository = "https://github.com/mrsyntaxdev/DXC"
+keywords = ["dxc", "utils", "media", "downloader"]
+categories = ["command-line-utilities", "multimedia"]
 
 [dependencies]

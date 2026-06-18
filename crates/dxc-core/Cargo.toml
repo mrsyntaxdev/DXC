@@ -2,7 +2,11 @@
 name = "dxc-core"
 version = "0.1.0"
 edition = "2024"
-description = "DXC Core - Core logic and types"
+description = "DXC Core - Core types, config, and errors"
+license = "MIT"
+repository = "https://github.com/mrsyntaxdev/DXC"
+keywords = ["dxc", "core", "media", "downloader"]
+categories = ["command-line-utilities", "multimedia"]
 
 [dependencies]
 serde = { workspace = true }

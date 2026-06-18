@@ -3,10 +3,14 @@ name = "dxc-providers"
 version = "0.1.0"
 edition = "2024"
 description = "DXC Providers - Media source providers (YouTube, TikTok, etc.)"
+license = "MIT"
+repository = "https://github.com/mrsyntaxdev/DXC"
+keywords = ["dxc", "providers", "youtube", "tiktok", "instagram", "media"]
+categories = ["command-line-utilities", "multimedia"]
 
 [dependencies]
-dxc-core = { path = "../dxc-core" }
-dxc-utils = { path = "../dxc-utils" }
+dxc-core = { path = "../dxc-core", version = "0.1.0" }
+dxc-utils = { path = "../dxc-utils", version = "0.1.0" }
 
 reqwest = { workspace = true }
 serde = { workspace = true }

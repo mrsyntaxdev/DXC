@@ -2,18 +2,23 @@
 name = "dxc-cli"
 version = "0.1.0"
 edition = "2024"
-description = "DXC CLI - Command line interface"
+description = "DXC CLI - Download videos, audio, and images from the web"
+license = "MIT"
+repository = "https://github.com/mrsyntaxdev/DXC"
+homepage = "https://github.com/mrsyntaxdev/DXC"
+keywords = ["dxc", "downloader", "youtube", "tiktok", "instagram", "cli"]
+categories = ["command-line-utilities", "multimedia"]
 
 [[bin]]
 name = "dxc"
 path = "src/main.rs"
 
 [dependencies]
-dxc-core = { path = "../dxc-core" }
-dxc-providers = { path = "../dxc-providers" }
-dxc-db = { path = "../dxc-db" }
-dxc-converter = { path = "../dxc-converter" }
-dxc-utils = { path = "../dxc-utils" }
+dxc-core = { path = "../dxc-core", version = "0.1.0" }
+dxc-providers = { path = "../dxc-providers", version = "0.1.0" }
+dxc-db = { path = "../dxc-db", version = "0.1.0" }
+dxc-converter = { path = "../dxc-converter", version = "0.1.0" }
+dxc-utils = { path = "../dxc-utils", version = "0.1.0" }
 
 clap = { version = "4", features = ["derive"] }
 tokio = { workspace = true }

@@ -3,6 +3,10 @@ name = "dxc-converter"
 version = "0.1.0"
 edition = "2024"
 description = "DXC Converter - Media conversion via FFmpeg"
+license = "MIT"
+repository = "https://github.com/mrsyntaxdev/DXC"
+keywords = ["dxc", "converter", "ffmpeg", "media"]
+categories = ["command-line-utilities", "multimedia"]
 
 [dependencies]
 thiserror = { workspace = true }
