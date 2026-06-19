@@ -40,6 +40,8 @@ enum Command {
         #[command(subcommand)]
         action: ConfigCommand,
     },
+    /// Update DXC to the latest version
+    Update,
 }
 
 #[derive(Subcommand)]
@@ -98,6 +100,7 @@ async fn main() -> anyhow::Result<()> {
             ConfigCommand::Set { key, value } => cmd_config_set(&mut config, &key, &value)?,
             ConfigCommand::Get { key } => cmd_config_get(&config, &key)?,
         },
+        Some(Command::Update) => cmd_update().await?,
         None => {
             // No subcommand and no --version; clap already shows help
         }
@@ -309,6 +312,26 @@ fn cmd_config_get(config: &DxcConfig, key: &str) -> anyhow::Result<()> {
         Some(val) => println!("{}", val.bold()),
         None => error_msg(&format!("Unknown key: {key}")),
     }
+    Ok(())
+}
+
+async fn cmd_update() -> anyhow::Result<()> {
+    header("UPDATE");
+
+    let status = tokio::process::Command::new("cargo")
+        .args(["install", "dxc-cli"])
+        .stdout(std::process::Stdio::inherit())
+        .stderr(std::process::Stdio::inherit())
+        .status()
+        .await?;
+
+    if status.success() {
+        success("DXC updated to the latest version!");
+    } else {
+        error_msg("Update failed — is cargo installed?");
+    }
+
+    println!();
     Ok(())
 }
 
