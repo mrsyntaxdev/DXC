@@ -318,6 +318,35 @@ fn cmd_config_get(config: &DxcConfig, key: &str) -> anyhow::Result<()> {
 async fn cmd_update() -> anyhow::Result<()> {
     header("UPDATE");
 
+    let current = env!("CARGO_PKG_VERSION");
+    let url = "https://crates.io/api/v1/crates/dxc-cli";
+
+    let client = reqwest::Client::new();
+    let resp = client.get(url)
+        .header("User-Agent", "dxc-cli")
+        .send()
+        .await;
+
+    let latest = match resp {
+        Ok(r) if r.status().is_success() => {
+            let json: serde_json::Value = r.json().await.unwrap_or_default();
+            json["crate"]["max_version"].as_str().unwrap_or(current).to_string()
+        }
+        _ => {
+            println!("  {} Could not check latest version, updating anyway...\n", "⊙".yellow());
+            current.to_string()
+        }
+    };
+
+    if latest == current {
+        println!("  {} Already up-to-date (v{})", "✔".green(), current.green());
+        println!();
+        return Ok(());
+    }
+
+    println!("  {} v{} → v{}", "⊙".cyan(), current.bold(), latest.bold());
+    println!();
+
     let status = tokio::process::Command::new("cargo")
         .args(["install", "dxc-cli"])
         .stdout(std::process::Stdio::inherit())
