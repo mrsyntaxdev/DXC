@@ -1,6 +1,6 @@
 [package]
 name = "dxc-providers"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "DXC Providers - Media source providers (YouTube, TikTok, etc.)"
 license = "MIT"
@@ -9,8 +9,8 @@ keywords = ["dxc", "providers", "youtube", "media", "downloader"]
 categories = ["command-line-utilities", "multimedia"]
 
 [dependencies]
-dxc-core = { path = "../dxc-core", version = "0.1.0" }
-dxc-helpers = { path = "../dxc-helpers", version = "0.1.0" }
+dxc-core = { path = "../dxc-core", version = "0.1.1" }
+dxc-helpers = { path = "../dxc-helpers", version = "0.1.1" }
 
 reqwest = { workspace = true }
 serde = { workspace = true }

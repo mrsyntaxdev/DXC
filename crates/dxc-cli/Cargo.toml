@@ -1,6 +1,6 @@
 [package]
 name = "dxc-cli"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "DXC CLI - Download videos, audio, and images from the web"
 license = "MIT"
@@ -14,11 +14,11 @@ name = "dxc"
 path = "src/main.rs"
 
 [dependencies]
-dxc-core = { path = "../dxc-core", version = "0.1.0" }
-dxc-providers = { path = "../dxc-providers", version = "0.1.0" }
-dxc-db = { path = "../dxc-db", version = "0.1.0" }
-dxc-converter = { path = "../dxc-converter", version = "0.1.0" }
-dxc-helpers = { path = "../dxc-helpers", version = "0.1.0" }
+dxc-core = { path = "../dxc-core", version = "0.1.1" }
+dxc-providers = { path = "../dxc-providers", version = "0.1.1" }
+dxc-db = { path = "../dxc-db", version = "0.1.1" }
+dxc-converter = { path = "../dxc-converter", version = "0.1.1" }
+dxc-helpers = { path = "../dxc-helpers", version = "0.1.1" }
 
 clap = { version = "4", features = ["derive"] }
 tokio = { workspace = true }
