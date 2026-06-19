@@ -1,6 +1,6 @@
 [package]
 name = "dxc-db"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 description = "DXC DB - SQLite database layer for download history"
 license = "MIT"
@@ -9,7 +9,7 @@ keywords = ["dxc", "database", "sqlite", "history"]
 categories = ["command-line-utilities", "database"]
 
 [dependencies]
-dxc-core = { path = "../dxc-core", version = "0.1.1" }
+dxc-core = { path = "../dxc-core", version = "0.1.2" }
 
 rusqlite = { version = "0.32", features = ["bundled"] }
 serde = { workspace = true }

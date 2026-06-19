@@ -215,7 +215,7 @@ dependencies = [
 
 [[package]]
 name = "dxc-cli"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "anyhow",
  "clap",
@@ -237,14 +237,14 @@ dependencies = [
 
 [[package]]
 name = "dxc-converter"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "thiserror",
 ]
 
 [[package]]
 name = "dxc-core"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "serde",
  "serde_json",
@@ -254,7 +254,7 @@ dependencies = [
 
 [[package]]
 name = "dxc-db"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "dxc-core",
  "rusqlite",
@@ -264,11 +264,11 @@ dependencies = [
 
 [[package]]
 name = "dxc-helpers"
-version = "0.1.1"
+version = "0.1.2"
 
 [[package]]
 name = "dxc-providers"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "async-trait",
  "dxc-core",

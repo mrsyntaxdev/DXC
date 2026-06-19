@@ -82,7 +82,15 @@ async fn main() -> anyhow::Result<()> {
     let cli = Cli::parse();
 
     if cli.version {
-        println!("DXC v{}", env!("CARGO_PKG_VERSION"));
+        let current = env!("CARGO_PKG_VERSION");
+        print!("DXC v{}", current);
+        match check_latest_version().await {
+            Ok(Some(latest)) if latest != current => {
+                println!("  {} Update available: v{}. Run `dxc update`", "⊙".cyan(), latest.cyan());
+            }
+            Ok(Some(_)) => println!("  {} Up-to-date", "✔".green()),
+            _ => println!(),
+        }
         return Ok(());
     }
 
@@ -315,23 +323,28 @@ fn cmd_config_get(config: &DxcConfig, key: &str) -> anyhow::Result<()> {
     Ok(())
 }
 
+async fn check_latest_version() -> Result<Option<String>, reqwest::Error> {
+    let url = "https://crates.io/api/v1/crates/dxc-cli";
+    let resp = reqwest::Client::new()
+        .get(url)
+        .header("User-Agent", "dxc-cli")
+        .send()
+        .await?;
+    if resp.status().is_success() {
+        let json: serde_json::Value = resp.json().await.unwrap_or_default();
+        Ok(json["crate"]["max_version"].as_str().map(|s| s.to_string()))
+    } else {
+        Ok(None)
+    }
+}
+
 async fn cmd_update() -> anyhow::Result<()> {
     header("UPDATE");
 
     let current = env!("CARGO_PKG_VERSION");
-    let url = "https://crates.io/api/v1/crates/dxc-cli";
 
-    let client = reqwest::Client::new();
-    let resp = client.get(url)
-        .header("User-Agent", "dxc-cli")
-        .send()
-        .await;
-
-    let latest = match resp {
-        Ok(r) if r.status().is_success() => {
-            let json: serde_json::Value = r.json().await.unwrap_or_default();
-            json["crate"]["max_version"].as_str().unwrap_or(current).to_string()
-        }
+    let latest = match check_latest_version().await {
+        Ok(Some(v)) => v,
         _ => {
             println!("  {} Could not check latest version, updating anyway...\n", "⊙".yellow());
             current.to_string()
