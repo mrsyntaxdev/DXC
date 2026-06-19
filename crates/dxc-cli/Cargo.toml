@@ -6,7 +6,7 @@ description = "DXC CLI - Download videos, audio, and images from the web"
 license = "MIT"
 repository = "https://github.com/mrsyntaxdev/DXC"
 homepage = "https://github.com/mrsyntaxdev/DXC"
-keywords = ["dxc", "downloader", "youtube", "tiktok", "instagram", "cli"]
+keywords = ["dxc", "downloader", "youtube", "media", "cli"]
 categories = ["command-line-utilities", "multimedia"]
 
 [[bin]]

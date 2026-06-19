@@ -25,6 +25,9 @@ impl Provider for InstagramProvider {
     }
 
     async fn download(&self, url: &str, output_path: &str) -> Result<String, DxcError> {
-        crate::ytdlp::download(url, output_path).await
+        crate::ytdlp::download_with_args(
+            url, output_path,
+            &["--extractor-args", "instagram:app_id=124024574287414"],
+        ).await
     }
 }

@@ -45,20 +45,28 @@ pub async fn fetch_info(url: &str) -> Result<MediaInfo, DxcError> {
 }
 
 pub async fn download(url: &str, output_path: &str) -> Result<String, DxcError> {
+    download_with_args(url, output_path, &[]).await
+}
+
+pub async fn download_with_args(url: &str, output_path: &str, extra_args: &[&str]) -> Result<String, DxcError> {
     let dir = Path::new(output_path)
         .parent()
         .map(|p| p.to_string_lossy().to_string())
         .unwrap_or_else(|| ".".to_string());
 
-    let output = tokio::process::Command::new("yt-dlp")
-        .args([
-            "--no-update",
-            "--merge-output-format", "mp4",
-            "-o", &format!("{}/%(title)s.%(ext)s", dir),
-            "--print", "after_move:filepath",
-            "--no-playlist",
-            url,
-        ])
+    let mut cmd = tokio::process::Command::new("yt-dlp");
+    cmd.args([
+        "--no-update",
+        "--merge-output-format", "mp4",
+        "--no-watermark",
+        "-o", &format!("{}/%(title)s.%(ext)s", dir),
+        "--print", "after_move:filepath",
+        "--no-playlist",
+    ]);
+    cmd.args(extra_args);
+    cmd.arg(url);
+
+    let output = cmd
         .stdout(Stdio::piped())
         .stderr(Stdio::inherit())
         .output()

@@ -5,7 +5,7 @@ edition = "2024"
 description = "DXC Providers - Media source providers (YouTube, TikTok, etc.)"
 license = "MIT"
 repository = "https://github.com/mrsyntaxdev/DXC"
-keywords = ["dxc", "providers", "youtube", "tiktok", "instagram", "media"]
+keywords = ["dxc", "providers", "youtube", "media", "downloader"]
 categories = ["command-line-utilities", "multimedia"]
 
 [dependencies]
